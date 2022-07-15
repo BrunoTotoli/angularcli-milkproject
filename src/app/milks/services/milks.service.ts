@@ -8,7 +8,7 @@ import {first, tap} from "rxjs";
 })
 export class MilksService {
 
-  private readonly API = '/assets/milks.json'
+  private readonly API = '/v1/milk/'
 
   constructor(private httpClient: HttpClient) {
   }
