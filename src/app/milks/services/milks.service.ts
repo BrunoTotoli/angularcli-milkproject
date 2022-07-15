@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Milk} from "../model/milk";
 import {HttpClient} from "@angular/common/http";
-import {delay, first, tap} from "rxjs";
+import {first, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import {delay, first, tap} from "rxjs";
 export class MilksService {
 
   //private readonly API = '/v1/milk/'
-  private readonly API = '/assets/milks.json'
+  private readonly API = '/assetas/milks.json'
 
   constructor(private httpClient: HttpClient) {
   }
@@ -17,7 +17,6 @@ export class MilksService {
   list() {
     return this.httpClient.get<Milk[]>(this.API).pipe(
       first(),
-      delay(5000),
       tap(milks => console.log(milks))
     );
   }
