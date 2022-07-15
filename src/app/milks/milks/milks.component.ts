@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Milk} from "../model/milk";
+import {MilksService} from "../services/milks.service";
 
 
 @Component({
@@ -7,7 +8,7 @@ import {Milk} from "../model/milk";
   templateUrl: './milks.component.html',
   styleUrls: ['./milks.component.scss']
 })
-export class MilksComponent {
+export class MilksComponent implements OnInit{
   milks: Milk[] = [
     {_id: 1, quantity: 134,periodTime:'Tarde',date:'12/04/2022'},
     {_id: 2, quantity: 114,periodTime:'Tarde',date:'13/04/2022'},
@@ -16,12 +17,12 @@ export class MilksComponent {
     {_id: 5, quantity: 164,periodTime:'Tarde',date:'16/04/2022'}
   ];
 
-  constructor() {
 
+  constructor(private milksService:MilksService) {
   }
 
   ngOnInit(): void {
-
+    this.milksService.findAll();
   }
 
   displayedColumns: string[] = ['quantity', 'periodTime', 'date'];
