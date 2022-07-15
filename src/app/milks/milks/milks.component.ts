@@ -12,11 +12,11 @@ import {Observable} from "rxjs";
 export class MilksComponent implements OnInit {
 
 
-  milks: Observable<Milk[]>;
+  milks$: Observable<Milk[]>;
   displayedColumns: string[] = ['quantity', 'periodTime', 'date'];
 
   constructor(private milksService: MilksService) {
-    this.milks = milksService.list()
+    this.milks$ = milksService.list()
   }
 
   ngOnInit(): void {
