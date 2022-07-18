@@ -9,7 +9,7 @@ import {first, tap} from "rxjs";
 export class MilksService {
 
   //private readonly API = '/v1/milk/'
-  private readonly API = '/assetas/milks.json'
+  private readonly API = '/assets/milks.json'
 
   constructor(private httpClient: HttpClient) {
   }

@@ -10,7 +10,9 @@
       </ng-container>
       <ng-container matColumnDef="periodTime">
         <th mat-header-cell *matHeaderCellDef> PeriodTime</th>
-        <td mat-cell *matCellDef="let element"> {{element.periodTime}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.periodTime}}
+          <mat-icon aria-hidden="false" aria-label="Example home icon">{{element.periodTime | category}}</mat-icon>
+        </td>
       </ng-container>
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef> Date</th>

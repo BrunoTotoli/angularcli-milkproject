@@ -27,7 +27,7 @@ export class MilksComponent implements OnInit {
     )
   }
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
   onError(errorMsg: string) {
