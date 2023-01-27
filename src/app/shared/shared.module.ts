@@ -4,6 +4,7 @@ import {ErrorDialogComponent} from './components/error-dialog/error-dialog.compo
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { CategoryPipe } from './pipes/category.pipe';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CategoryPipe } from './pipes/category.pipe';
   imports: [
     CommonModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule
   ],
   exports: [
     ErrorDialogComponent,

@@ -1,0 +1,33 @@
+<mat-card>
+ <mat-toolbar color="primary">Milk Form</mat-toolbar>
+ <mat-card-content>
+<form [formGroup]="form" >
+  <mat-form-field  class="full-width">
+    <input matInput placeholder="Quantidade" formControlName="quantity">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Horario</mat-label>
+    <mat-select formControlName="date">
+      <mat-option value="one">MANHA</mat-option>
+      <mat-option value="two">TARDE</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Data</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+</form>
+</mat-card-content>
+
+<mat-card-actions>
+  <button mat-raised-button color="primary"(click)="onSubmit()">Salvar</button>
+  <button mat-stroked-button color="warn"(click)="onCancel()">Cancelar</button>
+</mat-card-actions>
+
+</mat-card>

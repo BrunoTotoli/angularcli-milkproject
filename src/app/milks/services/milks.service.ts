@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Milk} from "../model/milk";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {first, tap} from "rxjs";
 
 @Injectable({
@@ -8,14 +8,15 @@ import {first, tap} from "rxjs";
 })
 export class MilksService {
 
-  //private readonly API = '/v1/milk/'
-  private readonly API = '/assets/milks.json'
+  private readonly API = 'http://localhost:8080/v1/milk/'
+
 
   constructor(private httpClient: HttpClient) {
   }
 
   list() {
-    return this.httpClient.get<Milk[]>(this.API).pipe(
+    const headers = new HttpHeaders({Authorization: 'Basic '+ btoa('admin' + ':'+ 'senha') })
+    return this.httpClient.get<Milk[]>(this.API,{headers}).pipe(
       first(),
       tap(milks => console.log(milks))
     );

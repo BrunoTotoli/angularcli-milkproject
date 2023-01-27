@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {Milk} from "../model/milk";
 import {MilksService} from "../services/milks.service";
@@ -15,10 +16,12 @@ export class MilksComponent implements OnInit {
 
 
   milks$: Observable<Milk[]>;
-  displayedColumns: string[] = ['quantity', 'periodTime', 'date'];
+  displayedColumns: string[] = ['quantity','periodTime','date','actions'];
 
   constructor(private milksService: MilksService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.milks$ = milksService.list().pipe(
       catchError(err => {
         this.onError('Erro ao carregar lista ')
@@ -35,6 +38,13 @@ export class MilksComponent implements OnInit {
       data: errorMsg
     });
   }
+
+
+  onAdd(){
+    this.router.navigate(['new'],{relativeTo: this.route})
+  };
+
+
 
 
 }
